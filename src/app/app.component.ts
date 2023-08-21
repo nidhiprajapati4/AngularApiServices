@@ -12,31 +12,30 @@ interface Department {
 })
 export class AppComponent implements OnInit {
   title = 'APIServices';
-  value: string = '';
-  date: Date | undefined;
-  Gender: string = '';
-  checked: boolean = true;
-  department: Department[] | undefined;
-  selectedDepartment: Department | undefined;
+
+  employee: any;
+  // value: string = '';
+  // date: Date | undefined;
+  // Gender: string = '';
+  // checked: boolean = true;
+  // department: Department[] | undefined;
+  // selectedDepartment: Department | undefined;
+
+  constructor(private employeedata: EmployeedataService) {}
 
   ngOnInit() {
-    this.department = [
-      { name: 'Building Construction Department' },
-      { name: 'Agriculture Department' },
-      { name: 'Education Department' },
-      { name: 'Forest Department' },
-      { name: 'Energy Department' },
-    ];
     this.employeedata.employee().subscribe((data) => {
       console.log(data);
       this.employee = data;
     });
-  }
 
-  employee: any;
-
-  constructor(private employeedata: EmployeedataService) {
-    
+    // this.department = [
+    //   { name: 'Building Construction Department' },
+    //   { name: 'Agriculture Department' },
+    //   { name: 'Education Department' },
+    //   { name: 'Forest Department' },
+    //   { name: 'Energy Department' },
+    // ];
   }
 
   // getEmployeeFromData(data: any) {
