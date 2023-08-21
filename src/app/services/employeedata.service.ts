@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeedataService {
+  url = 'http://localhost:8080/api';
 
-  url = "http://localhost:8080/api/employee";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  employee(){
-    return this.http.get(this.url);
+  getEmployee() {
+    return this.http.get(this.url + '/employee');
   }
-  
-  // saveEmployee(data:any){
-  //   return this.http.post(this.url, data);
-  // }
 
+  saveEmployee(data: any) {
+    return this.http.post(this.url + '/register', data);
+  }
 }

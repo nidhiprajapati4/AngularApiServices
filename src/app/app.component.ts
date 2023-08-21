@@ -14,17 +14,13 @@ export class AppComponent implements OnInit {
   title = 'APIServices';
 
   employee: any;
-  // value: string = '';
-  // date: Date | undefined;
-  // Gender: string = '';
-  // checked: boolean = true;
-  // department: Department[] | undefined;
-  // selectedDepartment: Department | undefined;
+  department: Department[] | undefined;
+  selectedDepartment: Department | undefined;
 
   constructor(private employeedata: EmployeedataService) {}
 
   ngOnInit() {
-    this.employeedata.employee().subscribe((data) => {
+    this.employeedata.getEmployee().subscribe((data) => {
       console.log(data);
       this.employee = data;
     });
@@ -38,9 +34,9 @@ export class AppComponent implements OnInit {
     // ];
   }
 
-  // getEmployeeFromData(data: any) {
-  //   this.employeedata.saveEmployee(data).subscribe((result) => {
-  //     console.log(result);
-  //   });
-  // }
+  saveEmployeeData(data: any) {
+    this.employeedata.saveEmployee(data).subscribe((result) => {
+      console.log(data);
+    });
+  }
 }

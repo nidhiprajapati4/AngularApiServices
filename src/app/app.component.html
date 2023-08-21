@@ -1,31 +1,48 @@
-<!-- <div class="form"><h1>Employee Form</h1>
-<form>
-  <input
-    type="text"
-    pInputText
-    [(ngModel)]="value"
-    placeholder="Employee code"
-  />
-  <br />
-  <br />
-  <input type="text" pInputText [(ngModel)]="value" placeholder="First name" />
-  <br />
-  <br />
-  <input type="text" pInputText [(ngModel)]="value" placeholder="Last name" />
-  <br />
-  <br />
-  <p-calendar
-    [(ngModel)]="date"
-    [showIcon]="true"
-    placeholder="Date of birth"
-  ></p-calendar>
-  <br />
-  <br />
+<div class="form">
+  <h1>Employee Form</h1>
+  <form #userform="ngForm" (click)="saveEmployeeData(userform.value)">
+    <input
+      type="text"
+      pInputText
+      ngModel
+      placeholder="Employee code"
+      name="employeecode"
+    />
+    <br />
+    <br />
+    <input
+      type="text"
+      pInputText
+      name="firstname"
+      ngModel
+      placeholder="First name"
+    />
+    <br />
+    <br />
+    <input
+      type="text"
+      pInputText
+      name="lastname"
+      ngModel
+      placeholder="Last name"
+    />
+    <br />
+    <br />
+    <p-calendar
+      ngModel
+      [showIcon]="true"
+      placeholder="Date of birth"
+      [monthNavigator]="true"
+      [monthNavigator]="true"
+      name="dateOfBirth"
+    ></p-calendar>
+    <br />
+    <br />
     <label for="Gender1" class="ml-2">Male</label>
     <p-radioButton
       name="Gender"
       value="male"
-      [(ngModel)]="Gender"
+      ngModel
       inputId="Gender1"
     ></p-radioButton>
 
@@ -33,25 +50,26 @@
     <p-radioButton
       name="Gender"
       value="female"
-      [(ngModel)]="Gender"
+      ngModel
       inputId="Gender2"
     ></p-radioButton>
-  <br /><br/> 
-  <label>Is Active</label>
-  <p-checkbox
-    [(ngModel)]="checked"
-    [binary]="true"
-    inputId="binary"
-  ></p-checkbox>
-  <br /><br />
-
+    <br /><br />
+    <label>Is Active</label>
+    <p-checkbox
+      ngModel
+      [binary]="true"
+      inputId="binary"
+      name="isActive"
+    ></p-checkbox>
+    <br /><br />
+    <!-- 
   <p-dropdown
     [options]="department"
     [(ngModel)]="selectedDepartment"
     optionLabel="name"
   ></p-dropdown>
-  <br /><br />
+  <br /><br /> -->
 
-  <p-button>Save</p-button>
-</form>
-</div> -->
+    <p-button>Save</p-button>
+  </form>
+</div>
